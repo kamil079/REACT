@@ -26,19 +26,13 @@ class CurrentDate extends Component {
     };
 
     handleClick = () => {
-        this.setState(
-            {
-                today: this.state.today + 'data',
-            },
-            () => {
-                console.log(this.state.today);
-            }
-        );
+        this.setState((prevState) => ({
+            today: prevState.today + 1,
+        }));
     };
 
     render() {
-
-        const {today} = this.state;
+        const { today } = this.state;
         return (
             <>
                 <h1>{today}</h1>
