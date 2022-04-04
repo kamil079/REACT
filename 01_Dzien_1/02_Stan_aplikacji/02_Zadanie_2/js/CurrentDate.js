@@ -1,42 +1,30 @@
 import React, { Component } from "react";
 
-// class Clock extends Component {
-//     render() {
-//         return <strong>{this.props.date.toLocaleTimeString()}</strong>;
-//     }
-// }
-
-// export default class App extends Component {
-//     state = {
-//         time: new Date(),
-//     };
-//     render() {
-//         return (
-//             <>
-//                 <h1>Czas na świecie</h1>
-//                 <Clock date={this.state.time} />
-//             </>
-//         );
-//     }
-// }
-
 class CurrentDate extends Component {
     state = {
-        today: this.props.time,
+        time: this.props.time,
     };
 
-    handleClick = () => {
-        this.setState((prevState) => ({
-            today: prevState.today + 1,
-        }));
+    updateDate = () => {
+        let arr = [];
+        this.setState(
+            (prevState) => ({
+                time: (prevState.time = new Date().toLocaleString()),
+                
+            }),
+            () => {
+                arr.push(this.state.time);
+                console.log(arr)
+            }
+        );
     };
 
     render() {
-        const { today } = this.state;
+        const { time } = this.state;
         return (
             <>
-                <h1>{today}</h1>
-                <button onClick={this.handleClick}>date update</button>
+                <h1>{time}</h1>
+                <button onClick={this.updateDate}>date update</button>
             </>
         );
     }
