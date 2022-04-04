@@ -8,8 +8,10 @@ class RandomNumbers extends Component {
     randomNr = () => {
         this.setState((prevState) => {
             return {
-                arr:
-                    prevState.arr + Math.floor(Math.random() * (999 - 100 + 1)),
+                arr: [
+                    ...prevState.arr,
+                    Math.floor(Math.random() * (999 - 100 + 1)),
+                ],
             };
         });
     };
