@@ -2,35 +2,32 @@ import React, { Component } from "react";
 
 class TextTyper extends Component {
     state = {
-        number: nr,
+        word: "witaj",
     };
 
     handleClick = () => {
-        // const { number } = this.state;
-
         this.setState((prevState) => {
+            
             return {
-                number: prevState.number + 1,
+                word: prevState.word,
             };
         });
     };
 
     render() {
-        const { number } = this.state;
+        const { word } = this.state;
 
         return (
             <>
-                <h1>{number}</h1>
+                <h1>{word}</h1>
                 <button onClick={this.handleClick}>click</button>
             </>
         );
     }
 }
 
-let nr = 0;
-
 export default function App() {
-    return <TextTyper let number={nr} />;
+    return <TextTyper />;
 }
 
 // import React from "react";
