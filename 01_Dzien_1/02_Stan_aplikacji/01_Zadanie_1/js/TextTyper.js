@@ -5,12 +5,19 @@ class TextTyper extends Component {
         word: "witaj",
     };
 
+
     handleClick = () => {
+        const letter = [...prevState.word];
+        
         this.setState((prevState) => {
             
             return {
-                word: prevState.word,
+                word: [...prevState.word],
             };
+        }, () => {
+            for(let i = 0; i < this.state.word.length; i++) {
+                console.log(this.state.word[i])
+            }
         });
     };
 
@@ -29,34 +36,3 @@ class TextTyper extends Component {
 export default function App() {
     return <TextTyper />;
 }
-
-// import React from "react";
-
-// export default  function App() {
-//     return <TextTyper />;
-// };
-
-// class TextTyper extends React.Component {
-//     state = {
-//         counter: 0,
-//     };
-
-//     handleClick = () => {
-//         console.log("Działa");
-
-//         this.setState((prevState) => {
-//             return {
-//                 counter: prevState.counter + 1,
-//             };
-//         });
-//     };
-
-//     render() {
-//         return (
-//             <>
-//                 <h2>Twoje kliknięcia: {this.state.counter}</h2>
-//                 <button onClick={this.handleClick}>Kliknij!</button>
-//             </>
-//         );
-//     }
-// }
