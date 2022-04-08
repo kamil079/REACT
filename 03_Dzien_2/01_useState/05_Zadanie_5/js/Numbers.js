@@ -1,6 +1,9 @@
 import React, { useState } from "react";
 
 const Number = () => {
+    const initialArr = [
+        54, 76, 24, 63, 4, 54, 82, 36, 13, 80, 10, 69, 4, 23, 40,
+    ];
     const [arrNr, useArr] = useState([
         54, 76, 24, 63, 4, 54, 82, 36, 13, 80, 10, 69, 4, 23, 40,
     ]);
@@ -14,8 +17,7 @@ const Number = () => {
     };
 
     const getAllNumbers = () => {
-        useArr((arrNr) => arrNr);
-        console.log(arrNr);
+        useArr(initialArr);
     };
 
     return (
