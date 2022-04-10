@@ -1,7 +1,8 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 
-const ClockDate = ({today}) => {
-    const [date, setDate] = useState(today.toDateString());
+const ClockDate = ({ date }) => {
+    
+
     return <h1>{date}</h1>;
 };
 

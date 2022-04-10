@@ -1,16 +1,25 @@
-import React, { useState } from "react";
-import ClockDate from "./ClockDate";
+import React, { useState, useEffect } from "react";
 import ClockTime from "./ClockTime";
 
 const Clock = () => {
-    const [todaysDate, setTodaysDate] = useState(new Date());
+    const [today, setDate] = useState(new Date());
+
+    useEffect(() => {
+        const intervalId = setInterval(() => {
+            setDate((prevState) => (prevState = new Date()));
+        }, 1000);
+
+        return () => {
+            clearInterval(intervalId);
+        };
+    }, []);
 
     return (
-        <>
-            <ClockDate today={todaysDate} />
-            <ClockTime time={todaysDate} />
-        </>
-    );
+            <>
+                <ClockTime time={today.toLocaleTimeString()}/>
+                <ClockTime time={today.toDateString()}/>
+            </>                                                                                                                                                                                                                                                                                                                
+        );
 };
 
 export default () => {
