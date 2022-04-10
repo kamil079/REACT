@@ -3,18 +3,23 @@ import React, { useState, useEffect } from "react";
 const UserInfo = () => {
     const [user, setData] = useState({
         name: "Kamil",
-        surname: "Szczepaniec",
     });
 
     useEffect(() => {
-        setData((prevState) => {
-            ...prevState.name, 
-            name:'Adam'});
-    }, [name]);
+        const timeOutId = setTimeout(() => {
+            setData((prevState) => (prevState.name = "Adam"));
+        }, 2000);
+        return clearTimeout(timeOutId);
+    }, []);
+
+    const changeData = () => {
+                    setData((prevState) => (prevState.name = "Adam"));
+
+    }
 
     return (
         <p>
-            {user.name} {user.surname}
+            {user.name}
         </p>
     );
 };
