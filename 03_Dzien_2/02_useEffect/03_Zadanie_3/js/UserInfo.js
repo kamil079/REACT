@@ -2,24 +2,28 @@ import React, { useState, useEffect } from "react";
 
 const UserInfo = () => {
     const [user, setData] = useState({
-        name: "Kamil",
+        name: "Andrzej",
+        surname: "Gołota",
     });
+
+    let newUser = {
+        name: "Adam",
+        surname: "Małysz",
+    };
 
     useEffect(() => {
         const timeOutId = setTimeout(() => {
-            setData((prevState) => (prevState.name = "Adam"));
+            setData((prevState) => ({
+                ...prevState,
+                ...newUser,
+            }));
         }, 2000);
-        return clearTimeout(timeOutId);
+        // return clearTimeout(timeOutId);
     }, []);
-
-    const changeData = () => {
-                    setData((prevState) => (prevState.name = "Adam"));
-
-    }
 
     return (
         <p>
-            {user.name}
+            {user.name} {user.surname}
         </p>
     );
 };
