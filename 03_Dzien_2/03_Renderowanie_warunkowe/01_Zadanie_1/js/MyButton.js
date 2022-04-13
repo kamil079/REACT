@@ -4,7 +4,7 @@ const MyButton = () => {
     const [txt, setTxt] = useState('NIE')
 
     const toggle = () => {
-        setTxt(txt ? 'tak' : txt)
+        setTxt(txt === 'tak' ? 'nie' : 'tak')
     }
 
     return <button onClick={toggle}>{txt}</button>
