@@ -4,22 +4,26 @@ import FakeAPI from "./data/fakeAPI.js";
 const AccountData = () => {
   const [data, setData] = useState(false);
 
-  useEffect(() => {
-    FakeAPI.then((data) => {
-    //   setData(prevState => { prevState = data.day})
-      createData(data)
-    });
+  FakeAPI.then((data) => {
+    setData((prevState) => (prevState, data));
   });
 
-  const createData = (data) => {
-      data.map((el,i) => {
-          return <li key={i}>{el}</li>
-      })
-  }
+  console.log(data);
 
   return (
     <>
-      <ul>{createData()}</ul>
+      <ul>
+        {data &&
+          data.map((el, i) => {
+            return (
+              <li key={i}>
+                <p>Dnia: {el.day}</p>
+                <p>Saldo: {el.balance}</p>
+                <p>Reszta: {el.change}</p>
+              </li>
+            );
+          })}
+      </ul>
     </>
   );
 };
