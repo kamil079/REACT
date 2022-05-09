@@ -1,15 +1,15 @@
 import React, {useState} from 'react';
 
-const MyButton = () => {
-    const [txt, setTxt] = useState('NIE')
+const MyButton = ({text}) => {
+    const [txt, setTxt] = useState(text)
 
     const toggle = () => {
-        setTxt(txt ? 'tak' : txt)
+        setTxt(txt === "nie" ? 'tak' : 'nie')
     }
 
     return <button onClick={toggle}>{txt}</button>
 }
 
 export default () => {
-    return <MyButton/>
+    return <MyButton text={'TAK'}/>
 }
