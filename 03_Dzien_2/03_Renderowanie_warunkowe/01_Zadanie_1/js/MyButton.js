@@ -5,6 +5,7 @@ const MyButton = ({text}) => {
 
     const toggle = () => {
         setTxt(txt === "nie" ? 'tak' : 'nie')
+
     }
 
     return <button onClick={toggle}>{txt}</button>
