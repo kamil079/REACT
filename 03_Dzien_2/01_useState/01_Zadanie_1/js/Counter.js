@@ -12,19 +12,48 @@ const Counter = () => {
     };
 
     const reset = () => {
-        setCounter((prevState) => (prevState = 10));
+        setCounter((prevState) => prevState = 0);
     };
 
     return (
         <>
-            <h2>{counter}</h2>
+            <h2>Liczba kliknięć: {counter}</h2>
             <button onClick={increment}>+</button>
             <button onClick={decrement}>-</button>
-            <button onClick={reset}>reset</button>
+            <button onClick={reset}>Reset</button>
         </>
     );
 };
 
-export default () => {
-    return <Counter />;
-};
+export default Counter;
+
+// import React, { useState } from "react";
+
+// const Counter = () => {
+//     const [counter, setCounter] = useState(10);
+
+//     const increment = () => {
+//         setCounter((prevState) => prevState + 1);
+//     };
+
+//     const decrement = () => {
+//         setCounter((prevState) => prevState - 1);
+//     };
+
+//     const reset = () => {
+//         setCounter((prevState) => (prevState = 10));
+//     };
+
+//     return (
+//         <>
+//             <h2>{counter}</h2>
+//             <button onClick={increment}>+</button>
+//             <button onClick={decrement}>-</button>
+//             <button onClick={reset}>reset</button>
+//         </>
+//     );
+// };
+
+// export default () => {
+//     return <Counter />;
+// };
