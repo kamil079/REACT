@@ -1,39 +1,64 @@
 import React, { useState } from "react";
 
-const Number = () => {
-    const initialArr = [
-        54, 76, 24, 63, 4, 54, 82, 36, 13, 80, 10, 69, 4, 23, 40,
-    ];
-    const [arrNr, useArr] = useState([
-        54, 76, 24, 63, 4, 54, 82, 36, 13, 80, 10, 69, 4, 23, 40,
-    ]);
+let arr = [54, 76, 24, 63, 4, 54, 82, 36, 13, 80, 10, 69, 4, 23, 40];
 
-    const getEvenNumbers = () => {
-        useArr((prevState) => prevState.filter((nr) => nr % 2 == 0));
-    };
+const Numbers = () => {
+    const [numbers, setNumbers] = useState(arr);
 
-    const getNotEvenNumbers = () => {
-        useArr((prevState) => prevState.filter((nr) => nr % 2 !== 0));
-    };
-
-    const getAllNumbers = () => {
-        useArr(initialArr);
+    const evenNumbers = () => {
+        setNumbers(prevState => prevState.filter(el => el % 2 ===0));
     };
 
     return (
         <>
             <ul>
-                {arrNr.map((nr, i) => {
-                    return <li key={i}>{nr}</li>;
+                {numbers.map((el, i) => {
+                    return <li key={i}>{el}</li>;
                 })}
             </ul>
-            <button onClick={getEvenNumbers}>show even numbers</button>
-            <button onClick={getNotEvenNumbers}>show noteven numbers</button>
-            <button onClick={getAllNumbers}>show all</button>
+            <button onClick={evenNumbers}>Pokaz tylko parzyste!</button>
         </>
     );
 };
 
-export default () => {
-    return <Number />;
-};
+export default Numbers;
+
+// import React, { useState } from "react";
+
+// const Number = () => {
+//     const initialArr = [
+//         54, 76, 24, 63, 4, 54, 82, 36, 13, 80, 10, 69, 4, 23, 40,
+//     ];
+//     const [arrNr, useArr] = useState([
+//         54, 76, 24, 63, 4, 54, 82, 36, 13, 80, 10, 69, 4, 23, 40,
+//     ]);
+
+//     const getEvenNumbers = () => {
+//         useArr((prevState) => prevState.filter((nr) => nr % 2 == 0));
+//     };
+
+//     const getNotEvenNumbers = () => {
+//         useArr((prevState) => prevState.filter((nr) => nr % 2 !== 0));
+//     };
+
+//     const getAllNumbers = () => {
+//         useArr(initialArr);
+//     };
+
+//     return (
+//         <>
+//             <ul>
+//                 {arrNr.map((nr, i) => {
+//                     return <li key={i}>{nr}</li>;
+//                 })}
+//             </ul>
+//             <button onClick={getEvenNumbers}>show even numbers</button>
+//             <button onClick={getNotEvenNumbers}>show noteven numbers</button>
+//             <button onClick={getAllNumbers}>show all</button>
+//         </>
+//     );
+// };
+
+// export default () => {
+//     return <Number />;
+// };
