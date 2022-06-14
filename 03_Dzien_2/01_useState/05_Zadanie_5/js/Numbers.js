@@ -9,6 +9,14 @@ const Numbers = () => {
         setNumbers(prevState => prevState.filter(el => el % 2 ===0));
     };
 
+    const oddNumbers = () => {
+        setNumbers(prevState => prevState.filter(el => el % 2 !== 0));
+    };
+
+    const allNumbers = () => {
+        setNumbers(prevState => prevState = arr);
+    };
+
     return (
         <>
             <ul>
@@ -17,6 +25,8 @@ const Numbers = () => {
                 })}
             </ul>
             <button onClick={evenNumbers}>Pokaz tylko parzyste!</button>
+            <button onClick={oddNumbers}>Pokaz tylko nieparzyste!</button>
+            <button onClick={allNumbers}>Pokaz wszystkie!</button>
         </>
     );
 };
