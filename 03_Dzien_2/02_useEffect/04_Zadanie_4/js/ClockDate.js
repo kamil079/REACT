@@ -1,9 +1,18 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect } from 'react';
 
-const ClockDate = ({ date }) => {
-    
+const ClockDate = (props) => {
 
-    return <h1>{date}</h1>;
-};
+    return <h2>{props.date}</h2>
+}
 
 export default ClockDate;
+
+// import React, { useState, useEffect } from "react";
+
+// const ClockDate = ({ date }) => {
+    
+
+//     return <h1>{date}</h1>;
+// };
+
+// export default ClockDate;
