@@ -1,18 +1,31 @@
-import React, { useEffect, useState } from "react";
+import React, { useState, useEffect } from 'react'
 
-const NumberInfo = ({ number }) => {
-  const [nr, setNr] = useState(number);
+const NumberInfo = ({number}) => {
+    const [nr, setNr] = useState(number)
 
-  return (
-    <h1>
-      {nr}<br/>
-      {nr && nr % 2 == 0 ? "parzysta" : "nieparzysta"}<br/>
-      {Math.log2(nr) % 1 === 0 ? 'jest' : null}{/*math log from google*/}
 
-    </h1>
-  );
+    return <h1>{nr}</h1>
+}
+
+export default function App() {
+    return <NumberInfo number={1}/>
 };
 
-export default () => {
-  return <NumberInfo number={5} />;
-};
+// import React, { useEffect, useState } from "react";
+
+// const NumberInfo = ({ number }) => {
+//   const [nr, setNr] = useState(number);
+
+//   return (
+//     <h1>
+//       {nr}<br/>
+//       {nr && nr % 2 == 0 ? "parzysta" : "nieparzysta"}<br/>
+//       {Math.log2(nr) % 1 === 0 ? 'jest' : null}{/*math log from google*/}
+
+//     </h1>
+//   );
+// };
+
+// export default () => {
+//   return <NumberInfo number={5} />;
+// };
