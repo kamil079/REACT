@@ -1,6 +1,13 @@
 import React from "react";
 
+const PassParameter = () => {
 
-export default () => {
-    return <h1>test</h1>
-};
+    const handleClickButton = (txt,e) =>{
+        console.log(txt)
+        e.preventDefault()
+    }
+
+    return <a href="#" onClick={(e)=>handleClickButton("igor to boss",e)}>link</a>
+}
+
+export default PassParameter;
