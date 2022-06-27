@@ -1,12 +1,18 @@
-import React from "react";
+import React, { useState } from "react";
 import '../css/style.css'
 
 const MobileMenu = () => {
+  const [hideShow, setHideShow] = useState('hide')
+  
+
+  const toggle=()=>{
+    setHideShow(hideShow ? '' : 'hide')
+  }
   return (
-    <section class="mobile">
-      <header class="mobile-menu">
-        <a href="#" class="open-menu"></a>
-        <nav>
+    <section className="mobile">
+      <header className="mobile-menu">
+        <a href="#" className="open-menu" onClick={()=>toggle()} ></a>
+        <nav className={hideShow}>
           <ul>
             <li>
               <a href="#">O nas</a>
@@ -21,7 +27,7 @@ const MobileMenu = () => {
               <a href="#">Kontakt</a>
             </li>
           </ul>
-          <a href="#" class="close-menu">
+          <a href="#" className="close-menu" onClick={()=>toggle()}>
             Zamknij menu
           </a>
         </nav>
