@@ -4,9 +4,9 @@ import ShopItem from "./ShopItem";
 const Shop = () => {
     const [list, setList] = useState([]);
 
-    const onBuy = ({title}) => {
+    const onBuy = (title) => {
+        console.log(title)
         setList([...list, title]);
-
     };
 
     return (

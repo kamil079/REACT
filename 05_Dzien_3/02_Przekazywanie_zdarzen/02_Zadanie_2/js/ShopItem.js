@@ -3,7 +3,7 @@ import React from "react";
 const ShopItem = ({ title, onBuy }) => {
     const handleClick = () => {
         if (typeof onBuy === "function") {
-            handleClick(title);
+            onBuy(title);
         }
     };
 
@@ -11,7 +11,7 @@ const ShopItem = ({ title, onBuy }) => {
         <>
             <div>
                 <h1>{title}</h1>
-                <button onClick={onBuy}>Kup</button>
+                <button onClick={handleClick}>Kup</button>
             </div>
         </>
     );
