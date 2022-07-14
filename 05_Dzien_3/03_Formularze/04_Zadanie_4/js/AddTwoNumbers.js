@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 
 const AddTwoNumbers = () => {
-    const [form, setForm] = useState({ nr1: 0, nr2: 0 });
+    const [form, setForm] = useState({ nr1: ' ', nr2: ' ' });
 
     const handleSubmit = (e) => {
         const { name, value } = e.target;
@@ -30,9 +30,9 @@ const AddTwoNumbers = () => {
                     onChange={handleSubmit}
                 />
                 <h1 onChange={handleSubmit}>
-                    {form.nr1 || form.nr2
-                        ? parseInt(form.nr1) + parseInt(form.nr2)
-                        : "podaj dwie liczby"}{" "}
+                    {isNaN(form.nr1) || isNaN(form.nr2)
+                        ?  "podaj dwie liczby"
+                        :  parseInt(form.nr1) + parseInt(form.nr2)}{" "}
                 </h1>
             </form>
         </>
