@@ -4,22 +4,17 @@ const SelectOrType = ({ items }) => {
     const [cars, setCars] = useState(items);
 
     const handleChange = () => {
-        const {name, value} = e.target
-        setCars(prevState => {
-            return {
-                [name]: value
-            }
-        })
+        console.log(cars)
     }
 
 
     return (
         <>
             <form>
-                <select>
+                <select onChange={handleChange}>
                     {cars.map((el, i) => {
                         return (
-                            <option key={i} value={el}>
+                            <option key={i} value={el} >
                                 {el}
                             </option>
                         );
