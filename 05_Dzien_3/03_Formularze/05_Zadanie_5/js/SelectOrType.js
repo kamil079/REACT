@@ -1,35 +1,23 @@
 import React, { useState } from "react";
 
 const SelectOrType = ({ items }) => {
-    const [cars, setCars] = useState(items);
-
-    const handleChange = () => {
-        console.log(cars)
-    }
-
+    const [car, setCars] = useState(items[0]);
 
     return (
         <>
             <form>
-                <select onChange={handleChange}>
-                    {cars.map((el, i) => {
+                <select onChange={(e) => setCars(e.target.value)}>
+                    {items.map((el, i) => {
                         return (
-                            <option key={i} value={el} >
+                            <option key={i} value={el}>
                                 {el}
                             </option>
                         );
                     })}
                 </select>
-                <input
-                    type="text"
-                    style={{ visibility: "hidden", display: "flex" }}
-                />
-                <button style={{ visibility: "hidden", display: "flex" }}>
-                    Set!
-                </button>
+                {car === items[length-1] ? <button>hi</button> : <h1>nope</h1>}
             </form>
         </>
-        
     );
 };
 
