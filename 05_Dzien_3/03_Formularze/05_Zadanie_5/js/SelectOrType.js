@@ -3,6 +3,16 @@ import React, { useState } from "react";
 const SelectOrType = ({ items }) => {
     const [car, setCars] = useState(items[0]);
 
+    const handleChange = (e) => {
+        const {name, value} = e.target
+        setCars(prevState => {
+            return ([
+                ...prevState,
+                [name]= value
+            ])
+        })
+    }
+
     return (
         <>
             <form>
@@ -15,7 +25,7 @@ const SelectOrType = ({ items }) => {
                         );
                     })}
                 </select>
-                {car === items[length-1] ? <button>hi</button> : <h1>nope</h1>}
+                {car === items[3] ? <input type='text' name={car} value={car} onChange={handleChange}/> : <h1>nope</h1>}
             </form>
         </>
     );
