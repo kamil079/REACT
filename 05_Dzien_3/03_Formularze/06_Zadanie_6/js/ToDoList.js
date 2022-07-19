@@ -6,44 +6,31 @@ const ToDoList = () => {
             { name: "zxc", id: 1 },
             { name: "qwe", id: 2 },
         ],
-        name: "",
+        user: "",
     });
-
-    // const handleChange = (e) => {
-    //     setInputValue(e.target.value)
-    // }
 
     const onChange = (e) => {
         const { name, value } = e.target;
-        setList((prevState) => ({
-            ...prevState,
-            [name]: value,
-        }));
+        setList((prevState) => {
+            return {
+                ...prevState,
+                [name]: value,
+            };
+        });
     };
 
     const addToList = () => {
-        setList((prevState) => [
-            ...prevState.users,
-            { name: list.name, id: list.id + 1 },
-        ]);
+        const { users } = list;
+        setList(users.concat({ name: list.user, id: list.users.id + 1 }));
         setList("");
-        // setList([
-        //     ...list.arr,
-        //     {
-        //         name: list.task,
-        //         id: list.id + 1,
-        //         done: false,
-        //     },
-        //     console.log(list.arr),
-        // ]);
     };
 
     return (
         <>
             <input
                 type="text"
-                name="name"
-                value={list.name || ""}
+                name="user"
+                value={list.user || ""}
                 onChange={onChange}
             />
             <button onClick={addToList}>Add Task!</button>
