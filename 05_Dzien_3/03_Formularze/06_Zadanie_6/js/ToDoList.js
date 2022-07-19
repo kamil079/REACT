@@ -6,7 +6,7 @@ const ToDoList = () => {
             { name: "zxc", id: 1 },
             { name: "qwe", id: 2 },
         ],
-        inputValue: "",
+        name: "",
     });
 
     // const handleChange = (e) => {
@@ -15,20 +15,17 @@ const ToDoList = () => {
 
     const onChange = (e) => {
         const { name, value } = e.target;
-        setList((prevState) => {
-            return {
-                ...prevState,
-                [name]: value,
-            };
-        });
+        setList((prevState) => ({
+            ...prevState,
+            [name]: value,
+        }));
     };
 
     const addToList = () => {
-        setList((prevState) => ({
+        setList((prevState) => [
             ...prevState.users,
-            name: list.inputValue,
-            id: list.id + 1,
-        }));
+            { name: list.name, id: list.id + 1 },
+        ]);
         setList("");
         // setList([
         //     ...list.arr,
@@ -45,14 +42,18 @@ const ToDoList = () => {
         <>
             <input
                 type="text"
-                name="inputValue"
-                value={list.inputValue || ""}
+                name="name"
+                value={list.name || ""}
                 onChange={onChange}
             />
             <button onClick={addToList}>Add Task!</button>
             <ul>
                 {list.users?.map((user, id) => {
-                    return <li key={id}>{user.name} {user.id}</li>;
+                    return (
+                        <li key={id}>
+                            {user.name} {user.id}
+                        </li>
+                    );
                 })}
             </ul>
         </>
