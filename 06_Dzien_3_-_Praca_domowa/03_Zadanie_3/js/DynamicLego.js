@@ -18,7 +18,18 @@ const DynamicLego = () => {
             />
             <ul>
                 {arr.map((el, i) => {
-                    return <li key={i}>{el}</li>;
+                    return (
+                        <li
+                            key={i}
+                            style={{
+                                background: "red",
+                                height: "50px",
+                                width: `${el * 50}px`,
+                            }}
+                        >
+                            {el}
+                        </li>
+                    );
                 })}
             </ul>
         </form>
