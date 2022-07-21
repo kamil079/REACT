@@ -10,9 +10,15 @@ const WhoIsPresent = () => {
 
     const [users, setUsers] = useState([]);
 
+    useEffect(() => {
+    }, [users])
+
+    //how to delete from arrOfUsers chosen value
+
     const onChange = (e) => {
         setUsers([...users, e.target.value]);
-        console.log(users);
+        
+        console.log(e.target.value);
     };
 
     return (
