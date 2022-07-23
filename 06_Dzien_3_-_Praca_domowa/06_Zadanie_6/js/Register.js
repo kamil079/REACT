@@ -15,20 +15,6 @@ const Register = () => {
         display: "block",
     };
 
-    const handleClick = () => {
-        setForm((prevState) => ({
-            ...prevState,
-            name:
-                form.name.length < 5
-                    ? alert("Podaj więcej niż 5 znaków!")
-                    : form.name,
-            mail:
-                form.email.length < 3 || form.email.match(/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/)
-                    ? alert("Podaj więcej niż 3 znaki oraz @!")
-                    : form.email,
-        }));
-    };
-
     const handleChange = (e) => {
         const { name, value } = e.target;
         setForm((prevState) => {
@@ -37,6 +23,42 @@ const Register = () => {
                 [name]: value,
             };
         });
+    };
+
+    const handleClick = () => {
+        setForm((prevState) => ({
+            ...prevState,
+            name:
+                form.name.length < 5
+                    ? alert("Podaj więcej niż 5 znaków!")
+                    : form.name,
+            mail:
+                form.email.length < 3 ||
+                form.email.match(
+                    /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/
+                )
+                    ? alert("Podaj więcej niż 3 znaki oraz @!")
+                    : form.email,
+            pwd:
+                form.pwd.length < 4
+                    ? alert("hasło musi mieć minium 4 znaki!")
+                    : form.pwd,
+            pwd2:
+                form.pwd2.length < 4
+                    ? alert("hasło musi mieć minium 4 znaki!")
+                    : form.pwd2,
+            adres:
+                form.adres.length < 3
+                    ? alert("adres musi zawierac minium 3 znaki")
+                    : form.adres,
+            postcode: form.postcode.length = 5
+                ? alert(
+                    "5 znaków bez '-' lub 6 znaków z '-' jako trzecim znakiem"
+                )
+                : form.postcode,
+            city:
+                form.city.length < 2 ? alert('wiecej niz 2 znami') : form.city
+        }));
     };
 
     return (
